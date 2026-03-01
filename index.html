@@ -264,7 +264,7 @@ const literasi = [
 
 <div id="literasi"></div>
 
-<button>Kirim Refleksi</button>
+<button onclick="kirimData()">Kirim Refleksi</button>
 
 </div>
 
@@ -291,6 +291,38 @@ function render(list,target,prefix){
 render(metakognisi,"metakognisi","A");
 render(literasi,"literasi","B");
 </script>
+<script>
+function kirimData(){
+  const data = {
+    nama: document.querySelector('input[type=text]').value,
+    usia: document.querySelector('input[type=number]').value,
+    sekolah: document.querySelectorAll('input[type=text]')[1].value,
+    pendidikan: document.querySelector('select').value,
+    universitas: document.querySelectorAll('input[type=text]')[2].value,
+    sertifikasi: document.querySelectorAll('select')[1].value,
+    lamaMengajar: document.querySelectorAll('input[type=number]')[1].value,
+    ktsp: document.querySelectorAll('input[type=checkbox]')[0].checked,
+    k13: document.querySelectorAll('input[type=checkbox]')[1].checked,
+    merdeka: document.querySelectorAll('input[type=checkbox]')[2].checked,
+    jawabanA: [],
+    jawabanB: []
+  };
 
+  for(let i=0;i<12;i++){
+    const a = document.querySelector(`input[name="A${i}"]:checked`);
+    const b = document.querySelector(`input[name="B${i}"]:checked`);
+    data.jawabanA.push(a ? a.value : "");
+    data.jawabanB.push(b ? b.value : "");
+  }
+
+  fetch("https://script.google.com/macros/s/AKfycbxB8fjjZ4xhLyzv-3Gse9H9kgMlFnb9Urp9UGfC4wV9F7EOdrNAbgPXxNdC-aWB3O8GQw/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(() => alert("Terima kasih, refleksi Anda telah tersimpan."))
+  .catch(() => alert("Terjadi kesalahan, silakan coba lagi."));
+}
+</script>
 </body>
 </html>
