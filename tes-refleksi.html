@@ -11,53 +11,146 @@ body{
   background:#f4f6f9;
   padding:20px;
 }
+
 .container{
-  max-width:800px;
+  max-width:900px;
   margin:auto;
   background:#fff;
-  padding:24px;
-  border-radius:8px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  padding:28px;
+  border-radius:10px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.08);
 }
-h1{text-align:center;}
-.section{margin-top:30px;}
-.question{margin-top:16px;}
-.scale label{margin-right:10px;}
+
+h1{
+  text-align:center;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:14px;
+  color:#555;
+  margin-bottom:24px;
+}
+
+.scale-info{
+  background:#f8fafc;
+  padding:12px;
+  border-left:4px solid #2563eb;
+  font-size:13px;
+  margin-bottom:30px;
+}
+
+.section{
+  margin-top:40px;
+}
+
+.section h3{
+  border-left:6px solid #2563eb;
+  padding-left:10px;
+}
+
+.question{
+  background:#fafafa;
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  padding:16px;
+  margin-top:16px;
+}
+
+.question-title{
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.scale{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.scale label{
+  border:1px solid #cbd5f5;
+  border-radius:6px;
+  padding:10px 0;
+  text-align:center;
+  cursor:pointer;
+  font-size:14px;
+  background:#fff;
+}
+
+.scale input{
+  display:none;
+}
+
+.scale input:checked + span{
+  background:#2563eb;
+  color:#fff;
+  border-radius:6px;
+  display:block;
+}
+
 button{
-  margin-top:30px;
+  margin-top:40px;
   width:100%;
   padding:14px;
   font-size:16px;
   background:#2563eb;
   color:#fff;
   border:none;
-  border-radius:6px;
+  border-radius:8px;
   cursor:pointer;
 }
-.result{margin-top:30px;display:none;}
+
+button:hover{
+  background:#1e40af;
+}
+
+/* ===== HASIL ===== */
+.result{
+  margin-top:40px;
+}
+
 .result-box{
-  margin-top:20px;
+  margin-top:16px;
   padding:18px;
   border-radius:8px;
   border-left:8px solid;
 }
-.tahap-awal{background:#f1f5f9;border-color:#94a3b8;}
-.tahap-menengah{background:#eef2ff;border-color:#6366f1;}
-.tahap-tinggi{background:#ecfdf5;border-color:#10b981;}
+
+.tahap-awal{
+  background:#f1f5f9;
+  border-color:#94a3b8;
+}
+
+.tahap-menengah{
+  background:#eef2ff;
+  border-color:#6366f1;
+}
+
+.tahap-tinggi{
+  background:#ecfdf5;
+  border-color:#10b981;
+}
 </style>
 </head>
 
 <body>
 <div class="container">
 
-<h1>Tes Refleksi Mandiri<br>Guru Informatika</h1>
+<h1>Tes Refleksi Mandiri Guru Informatika</h1>
+<div class="subtitle">
+Tes Refleksi Mandiri metakognisi digital dan literasi AI
+</div>
 
-<p>Berikan skor <strong>1–5</strong> sesuai kondisi Anda.</p>
-<p>1 = Belum saya lakukan
-<p>2 = Jarang saya lakukan
-<p>3 = Kadang saya lakukan
-<p>4 = Sering saya lakukan
-<p>5 = Sudah menjadi Kebiasaan</p>
+<div class="scale-info">
+<strong>Petunjuk Pengisian:</strong><br>
+1 = Belum saya lakukan &nbsp;|&nbsp;
+2 = Jarang &nbsp;|&nbsp;
+3 = Kadang &nbsp;|&nbsp;
+4 = Sering &nbsp;|&nbsp;
+5 = Sudah menjadi kebiasaan
+</div>
 
 <div class="section">
 <h3>A. Metakognisi Digital</h3>
@@ -69,7 +162,7 @@ button{
 <div id="ai"></div>
 </div>
 
-<button onclick="hitung()">Hitung Level Saya</button>
+<button onclick="hitung()">Lihat Hasil Refleksi Saya</button>
 
 <div class="result" id="hasil"></div>
 
@@ -97,11 +190,17 @@ const aiQs = [
 function render(list, target, prefix){
   const el = document.getElementById(target);
   list.forEach((q,i)=>{
-    let html = `<div class="question">${i+1}. ${q}<br>`;
+    let html = `
+    <div class="question">
+      <div class="question-title">${i+1}. ${q}</div>
+      <div class="scale">`;
     for(let n=1;n<=5;n++){
-      html += `<label><input type="radio" name="${prefix}${i}" value="${n}"> ${n}</label>`;
+      html += `<label>
+        <input type="radio" name="${prefix}${i}" value="${n}">
+        <span>${n}</span>
+      </label>`;
     }
-    html += `</div>`;
+    html += `</div></div>`;
     el.innerHTML += html;
   });
 }
@@ -113,20 +212,20 @@ function profilRefleksi(skor){
   if(skor <= 14) return {
     label:"Tahap Awal Penguatan",
     kelas:"tahap-awal",
-    deskripsi:"Penggunaan teknologi dan AI masih bersifat situasional.",
-    fokus:"Penguatan kesadaran peran, perencanaan dasar, dan refleksi."
+    deskripsi:"Praktik penggunaan teknologi dan AI masih bersifat situasional.",
+    fokus:"Penguatan kesadaran peran, perencanaan dasar, dan refleksi sederhana."
   };
   if(skor <= 22) return {
     label:"Tahap Penguatan dan Konsistensi",
     kelas:"tahap-menengah",
     deskripsi:"Praktik reflektif mulai berkembang namun belum konsisten.",
-    fokus:"Penguatan konsistensi perencanaan dan evaluasi."
+    fokus:"Penguatan konsistensi perencanaan dan evaluasi pembelajaran."
   };
   return {
     label:"Tahap Reflektif dan Regulatif",
     kelas:"tahap-tinggi",
-    deskripsi:"Penggunaan teknologi dan AI sudah reflektif dan terarah.",
-    fokus:"Pendalaman refleksi profesional dan integrasi AI etis."
+    deskripsi:"Penggunaan teknologi dan AI sudah dilakukan secara reflektif dan terarah.",
+    fokus:"Pendalaman refleksi profesional dan integrasi AI secara etis."
   };
 }
 
@@ -137,7 +236,7 @@ function hitung(){
     const m = document.querySelector(`input[name="M${i}"]:checked`);
     const a = document.querySelector(`input[name="A${i}"]:checked`);
     if(!m || !a){
-      alert("Silakan isi semua pernyataan.");
+      alert("Silakan isi semua pernyataan terlebih dahulu.");
       return;
     }
     skorMeta += +m.value;
@@ -147,30 +246,22 @@ function hitung(){
   const meta = profilRefleksi(skorMeta);
   const ai = profilRefleksi(skorAI);
 
-  document.getElementById("hasil").style.display="block";
-  document.getElementById("hasil").innerHTML = `
+  const hasil = document.getElementById("hasil");
+  hasil.innerHTML = `
     <h3>Hasil Refleksi Anda</h3>
 
     <div class="result-box ${meta.kelas}">
       <strong>Metakognisi Digital – ${meta.label}</strong>
       <p>${meta.deskripsi}</p>
-      <p><em>Fokus:</em> ${meta.fokus}</p>
+      <p><em>Fokus pengembangan:</em> ${meta.fokus}</p>
     </div>
 
     <div class="result-box ${ai.kelas}">
       <strong>Literasi AI – ${ai.label}</strong>
       <p>${ai.deskripsi}</p>
-      <p><em>Fokus:</em> ${ai.fokus}</p>
+      <p><em>Fokus pengembangan:</em> ${ai.fokus}</p>
     </div>
   `;
-
-  fetch("https://script.google.com/macros/s/AKfycbyxk_Hskdex5LWjZys8SWqjXr0sbkFypm4qAm3uR5UahuMC9M6eIS2cxsq4aR8xGQ8A/exec", {
-    method:"POST",
-    body:JSON.stringify({
-      skorMeta, tahapMeta:meta.label,
-      skorAI, tahapAI:ai.label
-    })
-  });
 }
 </script>
 
