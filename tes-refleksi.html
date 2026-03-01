@@ -231,7 +231,8 @@ function profilRefleksi(skor){
 }
 
 function hitung(){
-  let skorMeta = 0, skorAI = 0;
+  let skorMeta = 0;
+  let skorAI = 0;
 
   for(let i=0;i<6;i++){
     const m = document.querySelector(`input[name="M${i}"]:checked`);
@@ -240,8 +241,8 @@ function hitung(){
       alert("Silakan isi semua pernyataan terlebih dahulu.");
       return;
     }
-    skorMeta += +m.value;
-    skorAI += +a.value;
+    skorMeta += parseInt(m.value);
+    skorAI += parseInt(a.value);
   }
 
   const meta = profilRefleksi(skorMeta);
@@ -256,15 +257,28 @@ function hitung(){
       <p>${meta.deskripsi}</p>
       <p><em>Fokus pengembangan:</em> ${meta.fokus}</p>
     </div>
-;
+
+    <div class="result-box ${ai.kelas}">
+      <strong>Literasi AI – ${ai.label}</strong>
+      <p>${ai.deskripsi}</p>
+      <p><em>Fokus pengembangan:</em> ${ai.fokus}</p>
+    </div>
+
+    <p style="font-size:13px;color:#555;margin-top:12px">
+      Catatan: Hasil ini bersifat reflektif dan tidak digunakan sebagai penilaian kinerja.
+    </p>
+  `;
 
   fetch("https://script.google.com/macros/s/AKfycbzTIQPQZ8FZXb8CiSuvcIqZFOffCDKpqNRnfIQXhxe4KIefo8zgkjeNM4Ibof5LPaNp/exec", {
-    method:"POST",
-    body:JSON.stringify({
-      skorMeta, tahapMeta:meta.label,
-      skorAI, tahapAI:ai.label
+    method: "POST",
+    body: JSON.stringify({
+      skorMeta: skorMeta,
+      tahapMeta: meta.label,
+      skorAI: skorAI,
+      tahapAI: ai.label
     })
   });
+}
 </script>
 
 </body>
