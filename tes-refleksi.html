@@ -256,14 +256,15 @@ function hitung(){
       <p>${meta.deskripsi}</p>
       <p><em>Fokus pengembangan:</em> ${meta.fokus}</p>
     </div>
+;
 
-    <div class="result-box ${ai.kelas}">
-      <strong>Literasi AI – ${ai.label}</strong>
-      <p>${ai.deskripsi}</p>
-      <p><em>Fokus pengembangan:</em> ${ai.fokus}</p>
-    </div>
-  `;
-}
+  fetch("https://script.google.com/macros/s/AKfycbzTIQPQZ8FZXb8CiSuvcIqZFOffCDKpqNRnfIQXhxe4KIefo8zgkjeNM4Ibof5LPaNp/exec", {
+    method:"POST",
+    body:JSON.stringify({
+      skorMeta, tahapMeta:meta.label,
+      skorAI, tahapAI:ai.label
+    })
+  });
 </script>
 
 </body>
