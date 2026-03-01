@@ -6,13 +6,13 @@
 <title>Refleksi Metakognisi Digital & Literasi AI</title>
 
 <style>
-body {
+body{
   font-family: Arial, Helvetica, sans-serif;
-  background:#f6f8fb;
+  background:#f4f6f9;
   margin:0;
   padding:20px;
 }
-.container {
+.container{
   max-width:1100px;
   margin:auto;
   background:#fff;
@@ -20,74 +20,86 @@ body {
   border-radius:8px;
   box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
-h1 {
+h1{
   text-align:center;
-  margin-bottom:10px;
 }
-.section-title {
+.section-title{
   margin-top:40px;
   font-size:20px;
-  border-left:6px solid #3b82f6;
+  font-weight:bold;
+  border-left:6px solid #2563eb;
   padding-left:10px;
 }
-.question {
+.profile{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.profile label{
+  font-size:14px;
+}
+.profile input, .profile select{
+  width:100%;
+  padding:6px;
+  margin-top:4px;
+}
+.checkbox-group{
+  grid-column:1/3;
+}
+.question{
   border:1px solid #ddd;
   border-radius:6px;
   padding:16px;
   margin-top:20px;
 }
-.question-title {
+.question-title{
   font-weight:600;
   margin-bottom:12px;
 }
-.scale {
+.scale{
   display:grid;
   grid-template-columns:repeat(9,1fr);
   gap:6px;
   text-align:center;
 }
-.scale label {
+.scale label{
   border:1px solid #ccc;
   border-radius:4px;
   padding:6px 0;
   cursor:pointer;
   background:#fafafa;
 }
-.scale input {
+.scale input{
   display:none;
 }
-.scale input:checked + span {
-  background:#3b82f6;
+.scale input:checked + span{
+  background:#2563eb;
   color:#fff;
   border-radius:4px;
   padding:6px 0;
   display:block;
 }
-.scale-desc {
+.scale-desc{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  margin-top:8px;
+  margin-top:10px;
   font-size:12px;
   color:#555;
   text-align:center;
 }
-.low { }
-.mid { }
-.high { }
-
-button {
+button{
   margin-top:40px;
   width:100%;
   padding:14px;
-  background:#3b82f6;
+  background:#2563eb;
   color:#fff;
   border:none;
   border-radius:6px;
   font-size:16px;
   cursor:pointer;
 }
-button:hover {
-  background:#2563eb;
+button:hover{
+  background:#1e40af;
 }
 </style>
 </head>
@@ -96,49 +108,157 @@ button:hover {
 <div class="container">
 
 <h1>Refleksi Metakognisi Digital & Literasi AI<br>Guru Informatika</h1>
-<p style="text-align:center;color:#555">
-Pilih angka 1–9 sesuai dengan kondisi dan praktik Anda saat ini.
-</p>
+
+<!-- ================= PROFIL RESPONDEN ================= -->
+<div class="section-title">Profil Responden</div>
+<div class="profile">
+  <label>Nama
+    <input type="text">
+  </label>
+  <label>Usia
+    <input type="number">
+  </label>
+  <label>Mengajar di (Sekolah)
+    <input type="text">
+  </label>
+  <label>Pendidikan Terakhir
+    <select>
+      <option>S1</option>
+      <option>S2</option>
+      <option>S3</option>
+    </select>
+  </label>
+  <label>Universitas
+    <input type="text">
+  </label>
+  <label>Sertifikasi Guru
+    <select>
+      <option>Ya</option>
+      <option>Belum</option>
+    </select>
+  </label>
+  <label>Lama Mengajar (tahun)
+    <input type="number">
+  </label>
+  <div class="checkbox-group">
+    <strong>Mata Pelajaran TIK/Informatika yang Pernah Diampu pada Kurikulum:</strong><br>
+    <label><input type="checkbox"> KTSP</label>
+    <label><input type="checkbox"> Kurikulum 2013</label>
+    <label><input type="checkbox"> Kurikulum Merdeka</label>
+  </div>
+</div>
 
 <!-- ================= METAKOGNISI DIGITAL ================= -->
-<div class="section-title">A. Metakognisi Digital Guru Informatika</div>
+<div class="section-title">A. Metakognisi Digital </div>
 
 <script>
 const metakognisi = [
-"Sejauh mana saya menyadari kekuatan dan keterbatasan diri dalam menggunakan teknologi digital dan AI.",
-"Sejauh mana saya memiliki gambaran yang jelas tentang peran saya sebagai guru Informatika dalam mengarahkan penggunaan AI oleh siswa.",
-"Sejauh mana saya mempertimbangkan kapan penggunaan AI diperlukan dan kapan tidak diperlukan.",
-"Sejauh mana saya merencanakan penggunaan teknologi digital atau AI sebelum pembelajaran.",
-"Sejauh mana tujuan pembelajaran saya tetapkan sebelum memanfaatkan AI.",
-"Sejauh mana saya mempertimbangkan keterbatasan atau risiko AI sebelum digunakan.",
-"Sejauh mana saya memantau apakah penggunaan AI membantu pemahaman siswa.",
-"Sejauh mana saya menyesuaikan strategi digital ketika pembelajaran tidak berjalan sesuai rencana.",
-"Sejauh mana saya memperhatikan dampak teknologi digital terhadap keterlibatan siswa.",
-"Sejauh mana saya melakukan refleksi setelah penggunaan AI dalam pembelajaran.",
-"Sejauh mana saya mengevaluasi keputusan pedagogis terkait penggunaan AI.",
-"Sejauh mana hasil refleksi memengaruhi perbaikan pembelajaran berikutnya."
+{q:"Saya menyadari kekuatan dan keterbatasan diri dalam menggunakan teknologi digital dan AI.",
+ d1:"Kesadaran peran masih terbatas",
+ d2:"Kesadaran diri mulai berkembang",
+ d3:"Kesadaran diri kuat"},
+{q:"Saya memiliki gambaran jelas tentang peran saya mengarahkan penggunaan AI oleh siswa.",
+ d1:"Peran belum jelas",
+ d2:"Peran mulai dipahami",
+ d3:"Peran dipahami dengan baik"},
+{q:"Saya mempertimbangkan kapan AI perlu atau tidak digunakan.",
+ d1:"Pertimbangan masih minim",
+ d2:"Pertimbangan mulai berkembang",
+ d3:"Pertimbangan dilakukan secara sadar"},
+{q:"Saya merencanakan penggunaan teknologi digital atau AI sebelum pembelajaran.",
+ d1:"Perencanaan belum jelas",
+ d2:"Perencanaan belum optimal",
+ d3:"Perencanaan terarah"},
+{q:"Tujuan pembelajaran ditetapkan sebelum memanfaatkan AI.",
+ d1:"Tujuan belum jelas",
+ d2:"Tujuan mulai dirumuskan",
+ d3:"Tujuan dirumuskan dengan baik"},
+{q:"Saya mempertimbangkan risiko penggunaan AI sebelum digunakan.",
+ d1:"Risiko jarang dipertimbangkan",
+ d2:"Risiko mulai dipertimbangkan",
+ d3:"Risiko dipertimbangkan matang"},
+{q:"Saya memantau apakah AI membantu pemahaman siswa.",
+ d1:"Pemantauan terbatas",
+ d2:"Pemantauan belum konsisten",
+ d3:"Pemantauan aktif"},
+{q:"Saya menyesuaikan strategi digital jika pembelajaran tidak berjalan sesuai rencana.",
+ d1:"Penyesuaian jarang dilakukan",
+ d2:"Penyesuaian situasional",
+ d3:"Penyesuaian reflektif"},
+{q:"Saya memperhatikan dampak teknologi terhadap keterlibatan siswa.",
+ d1:"Perhatian masih terbatas",
+ d2:"Perhatian mulai berkembang",
+ d3:"Perhatian konsisten"},
+{q:"Saya melakukan refleksi setelah penggunaan AI.",
+ d1:"Refleksi jarang dilakukan",
+ d2:"Refleksi belum optimal",
+ d3:"Refleksi berkelanjutan"},
+{q:"Saya mengevaluasi keputusan pedagogis terkait AI.",
+ d1:"Evaluasi minim",
+ d2:"Evaluasi mulai dilakukan",
+ d3:"Evaluasi reflektif"},
+{q:"Hasil refleksi memengaruhi perbaikan pembelajaran.",
+ d1:"Belum berdampak",
+ d2:"Mulai berdampak",
+ d3:"Berdampak nyata"}
 ];
 </script>
 
 <div id="metakognisi"></div>
 
 <!-- ================= LITERASI AI ================= -->
-<div class="section-title">B. Literasi AI Guru Informatika</div>
+<div class="section-title">B. Literasi AI </div>
 
 <script>
 const literasi = [
-"Sejauh mana saya memahami bagaimana AI bekerja dengan memanfaatkan data.",
-"Sejauh mana saya memandang AI sebagai bidang dengan berbagai pendekatan.",
-"Sejauh mana saya dapat membedakan AI tugas khusus dengan jenis AI lainnya.",
-"Sejauh mana saya mengetahui aktivitas pembelajaran yang dapat dibantu AI.",
-"Sejauh mana saya mempertimbangkan keterbatasan AI dalam pembelajaran.",
-"Sejauh mana konteks sosial dan budaya siswa dipertimbangkan.",
-"Sejauh mana saya memahami bahwa hasil AI dipengaruhi oleh data.",
-"Sejauh mana saya menyadari kemungkinan bias dalam AI.",
-"Sejauh mana saya memandang peran manusia tetap diperlukan.",
-"Sejauh mana pertimbangan etika memengaruhi penggunaan AI.",
-"Sejauh mana saya memperhatikan perlindungan data dan privasi siswa.",
-"Sejauh mana saya mempertimbangkan dampak AI terhadap nilai kemanusiaan."
+{q:"Saya memahami bagaimana AI bekerja dengan memanfaatkan data.",
+ d1:"Pemahaman masih terbatas",
+ d2:"Pemahaman berkembang",
+ d3:"Pemahaman baik"},
+{q:"Saya memandang AI terdiri dari berbagai pendekatan.",
+ d1:"Pandangan masih sempit",
+ d2:"Pandangan mulai berkembang",
+ d3:"Pandangan komprehensif"},
+{q:"Saya dapat membedakan AI tugas khusus dengan jenis AI lain.",
+ d1:"Belum dapat membedakan",
+ d2:"Mulai dapat membedakan",
+ d3:"Dapat membedakan dengan baik"},
+{q:"Saya mengetahui aktivitas pembelajaran yang dapat dibantu AI.",
+ d1:"Pengetahuan terbatas",
+ d2:"Pengetahuan berkembang",
+ d3:"Pengetahuan baik"},
+{q:"Saya mempertimbangkan keterbatasan AI.",
+ d1:"Pertimbangan minim",
+ d2:"Pertimbangan berkembang",
+ d3:"Pertimbangan matang"},
+{q:"Saya mempertimbangkan konteks sosial dan budaya siswa.",
+ d1:"Jarang dipertimbangkan",
+ d2:"Mulai dipertimbangkan",
+ d3:"Dipertimbangkan konsisten"},
+{q:"Saya memahami hasil AI dipengaruhi data.",
+ d1:"Pemahaman rendah",
+ d2:"Pemahaman berkembang",
+ d3:"Pemahaman baik"},
+{q:"Saya menyadari kemungkinan bias AI.",
+ d1:"Kesadaran rendah",
+ d2:"Kesadaran berkembang",
+ d3:"Kesadaran baik"},
+{q:"Saya memandang peran manusia tetap diperlukan.",
+ d1:"Kurang disadari",
+ d2:"Mulai disadari",
+ d3:"Disadari dengan baik"},
+{q:"Pertimbangan etika memengaruhi penggunaan AI.",
+ d1:"Etika belum utama",
+ d2:"Etika mulai diperhatikan",
+ d3:"Etika terintegrasi"},
+{q:"Saya memperhatikan privasi dan perlindungan data siswa.",
+ d1:"Perhatian minim",
+ d2:"Perhatian berkembang",
+ d3:"Perhatian konsisten"},
+{q:"Saya mempertimbangkan dampak AI terhadap nilai kemanusiaan.",
+ d1:"Pertimbangan terbatas",
+ d2:"Pertimbangan berkembang",
+ d3:"Pertimbangan matang"}
 ];
 </script>
 
@@ -149,35 +269,27 @@ const literasi = [
 </div>
 
 <script>
-function renderQuestions(list, targetId, prefix) {
-  const target = document.getElementById(targetId);
-  list.forEach((q, i) => {
-    let html = `
-    <div class="question">
-      <div class="question-title">${i+1}. ${q}</div>
-      <div class="scale">
-    `;
+function render(list,target,prefix){
+  const el=document.getElementById(target);
+  list.forEach((item,i)=>{
+    let html=`<div class="question">
+      <div class="question-title">${i+1}. ${item.q}</div>
+      <div class="scale">`;
     for(let n=1;n<=9;n++){
-      html += `
-      <label>
-        <input type="radio" name="${prefix}${i}" value="${n}">
-        <span>${n}</span>
-      </label>`;
+      html+=`<label><input type="radio" name="${prefix}${i}" value="${n}"><span>${n}</span></label>`;
     }
-    html += `
-      </div>
+    html+=`</div>
       <div class="scale-desc">
-        <div class="low">Rendah (1–3)</div>
-        <div class="mid">Sedang (4–6)</div>
-        <div class="high">Tinggi (7–9)</div>
+        <div>${item.d1}</div>
+        <div>${item.d2}</div>
+        <div>${item.d3}</div>
       </div>
     </div>`;
-    target.innerHTML += html;
+    el.innerHTML+=html;
   });
 }
-
-renderQuestions(metakognisi, "metakognisi", "A");
-renderQuestions(literasi, "literasi", "B");
+render(metakognisi,"metakognisi","A");
+render(literasi,"literasi","B");
 </script>
 
 </body>
