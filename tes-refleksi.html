@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tes Refleksi Guru Informatika</title>
+
+<style>
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f4f6f9;
+  padding:20px;
+}
+.container{
+  max-width:800px;
+  margin:auto;
+  background:#fff;
+  padding:24px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+h1{
+  text-align:center;
+}
+.section{
+  margin-top:30px;
+}
+.question{
+  margin-top:16px;
+}
+.scale label{
+  margin-right:10px;
+}
+button{
+  margin-top:30px;
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+.result{
+  margin-top:30px;
+  padding:16px;
+  background:#eef2ff;
+  border-radius:6px;
+  display:none;
+}
+  /* ===== BOX HASIL REFLEKSI ===== */
+.result-box{
+  margin-top:20px;
+  padding:18px;
+  border-radius:8px;
+  border-left:8px solid;
+}
+
+/* Tahap Awal Penguatan */
+.tahap-awal{
+  background:#f1f5f9;
+  border-color:#94a3b8;
+}
+
+/* Tahap Penguatan & Konsistensi */
+.tahap-menengah{
+  background:#eef2ff;
+  border-color:#6366f1;
+}
+
+/* Tahap Reflektif & Regulatif */
+.tahap-tinggi{
+  background:#ecfdf5;
+  border-color:#10b981;
+}
+
+.result-box h4{
+  margin-top:0;
+  margin-bottom:6px;
+}
+.result-box p{
+  margin:6px 0;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Tes Refleksi Mandiri<br>Guru Informatika</h1>
+
+<p>
+Berikan skor <strong>1–5</strong> sesuai dengan kondisi Anda saat ini.
+</p>
+
+<p>
+1 = Belum saya lakukan &nbsp;|&nbsp;
+2 = Jarang &nbsp;|&nbsp;
+3 = Kadang &nbsp;|&nbsp;
+4 = Sering &nbsp;|&nbsp;
+5 = Sudah menjadi kebiasaan
+</p>
+
+<!-- A. METAKOGNISI DIGITAL -->
+<div class="section">
+<h3>A. Metakognisi Digital</h3>
+
+<script>
+const meta = [
+"Saya menyadari kekuatan dan keterbatasan saya dalam menggunakan teknologi digital atau AI saat mengajar.",
+"Sebelum pembelajaran, saya merencanakan penggunaan teknologi digital atau AI.",
+"Saat pembelajaran berlangsung, saya memantau apakah teknologi atau AI membantu pemahaman siswa.",
+"Saya menyesuaikan strategi pembelajaran digital ketika metode kurang efektif.",
+"Setelah pembelajaran, saya merefleksikan penggunaan teknologi digital atau AI.",
+"Hasil refleksi tersebut saya gunakan untuk memperbaiki pembelajaran berikutnya."
+];
+</script>
+
+<div id="meta"></div>
+</div>
+
+<!-- B. LITERASI AI -->
+<div class="section">
+<h3>B. Literasi AI</h3>
+
+<script>
+const ai = [
+"Saya memahami secara umum bagaimana AI bekerja dan dimanfaatkan dalam pembelajaran.",
+"Saya mengetahui aktivitas pembelajaran Informatika yang dapat dibantu AI.",
+"Saya mempertimbangkan keterbatasan AI sebelum menggunakannya.",
+"Saya menyadari bahwa data dan bias dapat memengaruhi hasil AI.",
+"Saya memperhatikan aspek etika dan dampak sosial penggunaan AI.",
+"Saya memperhatikan perlindungan data dan privasi siswa."
+];
+</script>
+
+<div id="ai"></div>
+</div>
+
+<button onclick="hitung()">Hitung Level Saya</button>
+
+<div class="result" id="hasil"></div>
+
+</div>
+
+<script>
+function render(list, target, prefix){
+  const el = document.getElementById(target);
+  list.forEach((q,i)=>{
+    let html = `<div class="question">${i+1}. ${q}<br><div class="scale">`;
+    for(let n=1;n<=5;n++){
+      html+=`<label><input type="radio" name="${prefix}${i}" value="${n}"> ${n}</label>`;
+    }
+    html+=`</div></div>`;
+    el.innerHTML+=html;
+  });
+}
+render(meta,"meta","M");
+render(ai,"ai","A");
+
+<script>
+function profilRefleksi(skor){
+  if(skor <= 14){
+    return {
+      label: "Tahap Awal Penguatan",
+      kelas: "tahap-awal",
+      deskripsi: "Penggunaan teknologi dan AI masih bersifat situasional dan perlu penguatan refleksi.",
+      fokus: "Membangun kesadaran peran guru, perencanaan dasar, dan refleksi sederhana pascapembelajaran."
+    };
+  }
+  if(skor <= 22){
+    return {
+      label: "Tahap Penguatan dan Konsistensi",
+      kelas: "tahap-menengah",
+      deskripsi: "Praktik reflektif sudah mulai berkembang namun belum selalu konsisten.",
+      fokus: "Memperkuat konsistensi perencanaan, pemantauan pembelajaran, dan evaluasi penggunaan AI."
+    };
+  }
+  return {
+    label: "Tahap Reflektif dan Regulatif",
+    kelas: "tahap-tinggi",
+    deskripsi: "Penggunaan teknologi dan AI dilakukan secara sadar, terarah, dan reflektif.",
+    fokus: "Pendalaman refleksi profesional dan integrasi AI secara pedagogis dan etis."
+  };
+}
+
+function hitung(){
+  let skorMeta = 0;
+  let skorAI = 0;
+
+  for(let i=0;i<6;i++){
+    const m = document.querySelector(`input[name="M${i}"]:checked`);
+    const a = document.querySelector(`input[name="A${i}"]:checked`);
+    if(!m || !a){
+      alert("Silakan isi seluruh pernyataan sebelum melihat hasil refleksi.");
+      return;
+    }
+    skorMeta += parseInt(m.value);
+    skorAI += parseInt(a.value);
+  }
+
+  const meta = profilRefleksi(skorMeta);
+  const ai = profilRefleksi(skorAI);
+
+  const hasilHTML = `
+  <h3>Hasil Refleksi Mandiri Anda</h3>
+
+  <div class="result-box ${meta.kelas}">
+    <h4>Metakognisi Digital</h4>
+    <strong>${meta.label}</strong>
+    <p>${meta.deskripsi}</p>
+    <p><em>Fokus pengembangan:</em> ${meta.fokus}</p>
+  </div>
+
+  <div class="result-box ${ai.kelas}">
+    <h4>Literasi AI</h4>
+    <strong>${ai.label}</strong>
+    <p>${ai.deskripsi}</p>
+    <p><em>Fokus pengembangan:</em> ${ai.fokus}</p>
+  </div>
+
+  <p style="margin-top:14px;font-size:13px;color:#555">
+  Catatan: Hasil ini bersifat reflektif dan digunakan sebagai panduan pengembangan profesional,
+  bukan sebagai penilaian kinerja.
+  </p>
+  `;
+
+  const hasil = document.getElementById("hasil");
+  hasil.style.display = "block";
+  hasil.innerHTML = hasilHTML;
+}
+</script>
+
+</body>
+</html>
