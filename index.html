@@ -63,12 +63,28 @@ h1{
   text-align:center;
 }
 .scale label{
-  border:1px solid #ccc;
+ border:1px solid #ccc;
   border-radius:4px;
   padding:6px 0;
   cursor:pointer;
-  background:#fafafa;
 }
+/* ===== LANGKAH 1: garis pembatas utama ===== */
+.scale label:nth-child(3),
+.scale label:nth-child(6){
+  border-right:3px solid #999;
+}
+/* ===== LANGKAH 2: beri jarak agar garis rapi ===== */
+.scale label:nth-child(3),
+.scale label:nth-child(6){
+  margin-right:4px;
+}
+
+/* ===== LANGKAH 3: garis pemisah di deskripsi bawah ===== */
+.scale-desc div:nth-child(1),
+.scale-desc div:nth-child(2){
+  border-right:1px dashed #ccc;
+} 
+
 .scale input{
   display:none;
 }
