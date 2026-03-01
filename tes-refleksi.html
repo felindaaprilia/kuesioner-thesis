@@ -229,6 +229,18 @@ function hitung(){
   const hasil = document.getElementById("hasil");
   hasil.style.display = "block";
   hasil.innerHTML = hasilHTML;
+
+  <script>
+fetch("https://script.google.com/macros/s/AKfycbyxk_Hskdex5LWjZys8SWqjXr0sbkFypm4qAm3uR5UahuMC9M6eIS2cxsq4aR8xGQ8A/exec", {
+  method: "POST",
+  body: JSON.stringify({
+    skorMeta: skorMeta,
+    tahapMeta: meta.label,
+    skorAI: skorAI,
+    tahapAI: ai.label
+  })
+});
+</script>
 }
 </script>
 
