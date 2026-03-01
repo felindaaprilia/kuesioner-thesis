@@ -1,27 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Refleksi Guru Informatika</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refleksi Metakognisi Digital & Literasi AI</title>
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f6f8fb;
+  margin:0;
+  padding:20px;
+}
+.container {
+  max-width:1100px;
+  margin:auto;
+  background:#fff;
+  padding:24px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+h1 {
+  text-align:center;
+  margin-bottom:10px;
+}
+.section-title {
+  margin-top:40px;
+  font-size:20px;
+  border-left:6px solid #3b82f6;
+  padding-left:10px;
+}
+.question {
+  border:1px solid #ddd;
+  border-radius:6px;
+  padding:16px;
+  margin-top:20px;
+}
+.question-title {
+  font-weight:600;
+  margin-bottom:12px;
+}
+.scale {
+  display:grid;
+  grid-template-columns:repeat(9,1fr);
+  gap:6px;
+  text-align:center;
+}
+.scale label {
+  border:1px solid #ccc;
+  border-radius:4px;
+  padding:6px 0;
+  cursor:pointer;
+  background:#fafafa;
+}
+.scale input {
+  display:none;
+}
+.scale input:checked + span {
+  background:#3b82f6;
+  color:#fff;
+  border-radius:4px;
+  padding:6px 0;
+  display:block;
+}
+.scale-desc {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:8px;
+  font-size:12px;
+  color:#555;
+  text-align:center;
+}
+.low { }
+.mid { }
+.high { }
+
+button {
+  margin-top:40px;
+  width:100%;
+  padding:14px;
+  background:#3b82f6;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
+}
+button:hover {
+  background:#2563eb;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
-<h2>Refleksi Metakognisi Digital Guru Informatika</h2>
+<h1>Refleksi Metakognisi Digital & Literasi AI<br>Guru Informatika</h1>
+<p style="text-align:center;color:#555">
+Pilih angka 1–9 sesuai dengan kondisi dan praktik Anda saat ini.
+</p>
 
-<p>Saya menyadari kekuatan dan keterbatasan saya dalam menggunakan teknologi digital dan AI.</p>
+<!-- ================= METAKOGNISI DIGITAL ================= -->
+<div class="section-title">A. Metakognisi Digital Guru Informatika</div>
 
-<label><input type="radio" name="q1" value="1">1</label>
-<label><input type="radio" name="q1" value="2">2</label>
-<label><input type="radio" name="q1" value="3">3</label>
-<label><input type="radio" name="q1" value="4">4</label>
-<label><input type="radio" name="q1" value="5">5</label>
-<label><input type="radio" name="q1" value="6">6</label>
-<label><input type="radio" name="q1" value="7">7</label>
-<label><input type="radio" name="q1" value="8">8</label>
-<label><input type="radio" name="q1" value="9">9</label>
+<script>
+const metakognisi = [
+"Sejauh mana saya menyadari kekuatan dan keterbatasan diri dalam menggunakan teknologi digital dan AI.",
+"Sejauh mana saya memiliki gambaran yang jelas tentang peran saya sebagai guru Informatika dalam mengarahkan penggunaan AI oleh siswa.",
+"Sejauh mana saya mempertimbangkan kapan penggunaan AI diperlukan dan kapan tidak diperlukan.",
+"Sejauh mana saya merencanakan penggunaan teknologi digital atau AI sebelum pembelajaran.",
+"Sejauh mana tujuan pembelajaran saya tetapkan sebelum memanfaatkan AI.",
+"Sejauh mana saya mempertimbangkan keterbatasan atau risiko AI sebelum digunakan.",
+"Sejauh mana saya memantau apakah penggunaan AI membantu pemahaman siswa.",
+"Sejauh mana saya menyesuaikan strategi digital ketika pembelajaran tidak berjalan sesuai rencana.",
+"Sejauh mana saya memperhatikan dampak teknologi digital terhadap keterlibatan siswa.",
+"Sejauh mana saya melakukan refleksi setelah penggunaan AI dalam pembelajaran.",
+"Sejauh mana saya mengevaluasi keputusan pedagogis terkait penggunaan AI.",
+"Sejauh mana hasil refleksi memengaruhi perbaikan pembelajaran berikutnya."
+];
+</script>
 
-<br><br>
-<button>Kirim</button>
+<div id="metakognisi"></div>
+
+<!-- ================= LITERASI AI ================= -->
+<div class="section-title">B. Literasi AI Guru Informatika</div>
+
+<script>
+const literasi = [
+"Sejauh mana saya memahami bagaimana AI bekerja dengan memanfaatkan data.",
+"Sejauh mana saya memandang AI sebagai bidang dengan berbagai pendekatan.",
+"Sejauh mana saya dapat membedakan AI tugas khusus dengan jenis AI lainnya.",
+"Sejauh mana saya mengetahui aktivitas pembelajaran yang dapat dibantu AI.",
+"Sejauh mana saya mempertimbangkan keterbatasan AI dalam pembelajaran.",
+"Sejauh mana konteks sosial dan budaya siswa dipertimbangkan.",
+"Sejauh mana saya memahami bahwa hasil AI dipengaruhi oleh data.",
+"Sejauh mana saya menyadari kemungkinan bias dalam AI.",
+"Sejauh mana saya memandang peran manusia tetap diperlukan.",
+"Sejauh mana pertimbangan etika memengaruhi penggunaan AI.",
+"Sejauh mana saya memperhatikan perlindungan data dan privasi siswa.",
+"Sejauh mana saya mempertimbangkan dampak AI terhadap nilai kemanusiaan."
+];
+</script>
+
+<div id="literasi"></div>
+
+<button>Kirim Refleksi</button>
+
+</div>
+
+<script>
+function renderQuestions(list, targetId, prefix) {
+  const target = document.getElementById(targetId);
+  list.forEach((q, i) => {
+    let html = `
+    <div class="question">
+      <div class="question-title">${i+1}. ${q}</div>
+      <div class="scale">
+    `;
+    for(let n=1;n<=9;n++){
+      html += `
+      <label>
+        <input type="radio" name="${prefix}${i}" value="${n}">
+        <span>${n}</span>
+      </label>`;
+    }
+    html += `
+      </div>
+      <div class="scale-desc">
+        <div class="low">Rendah (1–3)</div>
+        <div class="mid">Sedang (4–6)</div>
+        <div class="high">Tinggi (7–9)</div>
+      </div>
+    </div>`;
+    target.innerHTML += html;
+  });
+}
+
+renderQuestions(metakognisi, "metakognisi", "A");
+renderQuestions(literasi, "literasi", "B");
+</script>
 
 </body>
 </html>
