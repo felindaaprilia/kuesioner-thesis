@@ -170,7 +170,7 @@ button:hover{
 <div class="container">
 
 <!-- ================= INFORMED CONSENT ================= -->
-<div id="consentSection" style="max-width:700px; margin:auto; font-family:Arial; line-height:1.6;">
+<div id="page1" style="max-width:700px; margin:auto; font-family:Arial; line-height:1.6;">
 <h2 style="text-align:center;">LEMBAR PERSETUJUAN PARTISIPAN</h2>
 
 <p><strong>Judul Penelitian:</strong><br>
@@ -246,18 +246,15 @@ Dengan ini saya menyatakan bahwa:
    <strong>Jawaban Bapak/Ibu bersifat reflektif dan tidak digunakan sebagai penilaian kinerja </strong>
   </div>
   
-<script>
-function lanjut(){
-  document.getElementById("consentSection").style.display="none";
-}
-</script>
-<button onclick="lanjut()">Lanjut</button>
+<button onclick="nextToProfil()">Lanjut</button>
 
 </div>
 
 
 <!-- ================= PROFIL RESPONDEN ================= -->
-<div class="section-title">Profil Responden</div>
+<div id="page2" style="display:none; max-width:700px; margin:auto;">
+<h2 style="text-align:center;">Profil Responden</h2>
+
 <div class="profile">
   <label>Nama
     <input type="text" id="nama">
@@ -296,20 +293,28 @@ function lanjut(){
     <label><input type="checkbox" id="ktsp"> KTSP</label>
     <label><input type="checkbox" id="k13"> Kurikulum 2013</label>
     <label><input type="checkbox" id="merdeka"> Kurikulum Merdeka</label>
+</div>
   </div>
+
+<button onclick="nextToKuesioner()">Lanjut ke Kuesioner</button>
+  
 </div>
 
 <!-- ================= METAKOGNISI DIGITAL ================= -->
+<div id="page3" style="display:none; max-width:700px; margin:auto;">
+
 <div style="max-width:750px; margin:auto; font-family:Arial; line-height:1.6;">
   
   <div class="section-title">Metakognisi Digital</div>
 
   <p><strong>Petunjuk:</strong><br>
   Pilih angka yang paling menggambarkan kondisi Anda.</p>
-
-  <div id="metakognisi"></div>
+  
+<div id="metakognisi"></div>
 
 </div>
+
+<script>
 const metakognisi = [
 {q:"Dalam praktik pembelajaran Informatika, sejauh mana saya menyadari kekuatan dan kelemahan diri saya dalam menggunakan teknologi digital dan AI?",
  d1:"Masih dalam tahap awal mengenali kekuatan dan keterbatasan diri dalam penggunaan AI",
@@ -501,12 +506,51 @@ const literasiAI = [
 </script>
 
   
-<button onclick="kirimData()">Kirim Jawaban</button>
+<button id="btnKirim" onclick="kirimData()">Kirim Jawaban</button>
 
 </div>
 
 <script>
 
+function nextToProfil(){
+
+  const consent = document.querySelector('input[name="consent"]:checked');
+
+  if(!consent){
+    alert("Silakan pilih persetujuan terlebih dahulu.");
+    return;
+  }
+
+  if(consent.value === "tidak"){
+    alert("Terima kasih, Anda tidak melanjutkan penelitian.");
+    return;
+  }
+
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "block";
+
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function nextToKuesioner(){
+
+  const nama = document.getElementById("nama");
+  const usia = document.getElementById("usia");
+  const sekolah = document.getElementById("sekolah");
+  const universitas = document.getElementById("universitas");
+  const lama = document.getElementById("lama");
+
+  if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.value){
+    alert("Mohon lengkapi profil terlebih dahulu.");
+    return;
+  }
+
+  document.getElementById("page2").style.display = "none";
+  document.getElementById("page3").style.display = "block";
+
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+  
 // ================= CONNECT KE SPREADSHEET =================
 function render(list,target,prefix){
   const el=document.getElementById(target);
@@ -602,6 +646,13 @@ if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.v
 }
 
 function lanjutKirim(){
+
+const tombol = document.getElementById("btnKirim");
+
+  // disable tombol saat mulai kirim
+  tombol.disabled = true;
+  tombol.innerText = "Mengirim...";
+
   const data = {
     nama: document.getElementById("nama").value,
     usia: document.getElementById("usia").value,
@@ -631,10 +682,35 @@ function lanjutKirim(){
     method: "POST",
     body: JSON.stringify(data)
   })
-  .then(() => alert("Data berhasil dikirim"))
-  .catch(() => alert("Gagal kirim"));
+.then(() => {
+
+  // sembunyikan semua halaman
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "none";
+  document.getElementById("page3").style.display = "none";
+
+  // tampilkan halaman terima kasih
+  document.getElementById("page4").style.display = "block";
+
+  window.scrollTo({top:0, behavior:"smooth"});
+})
+  .catch(() => {
+    alert("Gagal kirim");
+    tombol.disabled = false; // aktifkan lagi kalau gagal
+    tombol.innerText = "Kirim Jawaban";
+  });
 }
 </script>
+
+
+<div id="page4" style="display:none; max-width:700px; margin:auto; text-align:center; padding:60px;">
+  
+  <h2>Terima Kasih 🙏</h2>
+  
+  <p>Data Anda telah berhasil dikirim.</p>
+  <p>Partisipasi Anda sangat berarti bagi penelitian ini.</p>
+
+</div>
   
 </body>
 </html>
