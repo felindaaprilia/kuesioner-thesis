@@ -580,29 +580,38 @@ function nextToKuesioner(){
   const universitas = document.getElementById("universitas");
   const lama = document.getElementById("lama");
   const statusSekolah = document.getElementById("statusSekolah");
+  const ktsp = document.getElementById("ktsp").checked;
+  const k13 = document.getElementById("k13").checked;
+  const merdeka = document.getElementById("merdeka").checked;
   const lokasi = document.querySelector('input[name="lokasi"]:checked');
 
-  if(
-    !nama.value || 
-    !usia.value || 
-    !sekolah.value || 
-    !universitas.value || 
-    !lama.value || 
-    !statusSekolah.value || 
-    !lokasi
-  ){
-    alert("Mohon lengkapi seluruh data profil terlebih dahulu.");
-    
-    if(!nama.value) nama.scrollIntoView({behavior:"smooth"});
-    else if(!usia.value) usia.scrollIntoView({behavior:"smooth"});
-    else if(!sekolah.value) sekolah.scrollIntoView({behavior:"smooth"});
-    else if(!universitas.value) universitas.scrollIntoView({behavior:"smooth"});
-    else if(!lama.value) lama.scrollIntoView({behavior:"smooth"});
-    else if(!statusSekolah.value) statusSekolah.scrollIntoView({behavior:"smooth"});
-    else if(!lokasi) document.querySelector('[name="lokasi"]').scrollIntoView({behavior:"smooth"});
+if(!ktsp && !k13 && !merdeka){
+  alert("Pilih minimal satu kurikulum yang pernah diajar.");
+  document.getElementById("ktsp").scrollIntoView({behavior:"smooth"});
+  return;
+}
+  
+if(
+  !nama.value || 
+  !usia.value || 
+  !sekolah.value || 
+  !universitas.value || 
+  !lama.value ||
+  !statusSekolah.value ||
+  !lokasi
+){
+  alert("Mohon lengkapi semua data profil terlebih dahulu.");
 
-    return;
-  }
+  if(!nama.value) nama.scrollIntoView({behavior:"smooth"});
+  else if(!usia.value) usia.scrollIntoView({behavior:"smooth"});
+  else if(!sekolah.value) sekolah.scrollIntoView({behavior:"smooth"});
+  else if(!statusSekolah.value) statusSekolah.scrollIntoView({behavior:"smooth"});
+  else if(!universitas.value) universitas.scrollIntoView({behavior:"smooth"});
+  else if(!lama.value) lama.scrollIntoView({behavior:"smooth"});
+  else if(!lokasi) document.querySelector('[name="lokasi"]').scrollIntoView({behavior:"smooth"});
+
+  return;
+}
 
   document.getElementById("page2").style.display = "none";
   document.getElementById("page3").style.display = "block";
@@ -661,7 +670,15 @@ const universitas = document.getElementById("universitas");
 const lama = document.getElementById("lama");
 const lokasi = document.querySelector('input[name="lokasi"]:checked');
 
-if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.value){
+if(
+  !nama.value || 
+  !usia.value || 
+  !sekolah.value || 
+  !universitas.value || 
+  !lama.value ||
+  !statusSekolah.value ||
+  !lokasi
+){
   
   alert("Mohon lengkapi semua data profil terlebih dahulu.");
 
@@ -672,8 +689,9 @@ if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.v
   else if(!statusSekolah.value) statusSekolah.scrollIntoView({behavior:"smooth"});
   else if(!universitas.value) universitas.scrollIntoView({behavior:"smooth"});
   else if(!lama.value) lama.scrollIntoView({behavior:"smooth"});
-  else if(!lokasi) {
-  alert("Silakan pilih lokasi sekolah.");
+  else if(!lokasi){
+  document.querySelector('.checkbox-group').scrollIntoView({behavior:"smooth"});
+}
   return;
 }
 
@@ -743,29 +761,19 @@ const tombol = document.getElementById("btnKirim");
     data.jawabanB.push(b.value);
   }
 
-  fetch("https://script.google.com/macros/s/AKfycby1wdrRfmUwXsAzcwh3R5IQwXotu3aOaiGm-ILlhpmw8p4Q2Nm6fXv_TY-52ALDbcAa_A/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify(data)
-  })
-.then(() => {
-  alert("masuk sini");
+ fetch("https://script.google.com/macros/s/AKfycby1wdrRfmUwXsAzcwh3R5IQwXotu3aOaiGm-ILlhpmw8p4Q2Nm6fXv_TY-52ALDbcAa_A/exec", {
+  method: "POST",
+  mode: "no-cors",
+  body: JSON.stringify(data)
+});
 
-  // sembunyikan semua halaman
-  document.getElementById("page1").style.display = "none";
-  document.getElementById("page2").style.display = "none";
-  document.getElementById("page3").style.display = "none";
+// langsung pindah halaman (TANPA THEN)
+document.getElementById("page1").style.display = "none";
+document.getElementById("page2").style.display = "none";
+document.getElementById("page3").style.display = "none";
+document.getElementById("page4").style.display = "block";
 
-  // tampilkan halaman terima kasih
-  document.getElementById("page4").style.display = "block";
-
-  window.scrollTo({top:0, behavior:"smooth"});
-})
-  .catch(() => {
-    alert("Gagal kirim");
-    tombol.disabled = false; // aktifkan lagi kalau gagal
-    tombol.innerText = "Kirim Jawaban";
-  });
+window.scrollTo({top:0, behavior:"smooth"});
 }
 </script>
 
@@ -774,8 +782,8 @@ const tombol = document.getElementById("btnKirim");
   
   <h2>Terima Kasih 🙏</h2>
   
-  <p>Data Anda telah berhasil dikirim.</p>
-  <p>Partisipasi Anda sangat berarti bagi penelitian ini.</p>
+  <p>Data telah berhasil dikirim.</p>
+  <p>Partisipasi Bapak/ibu sangat berarti bagi penelitian ini.</p>
 
 </div>
   
