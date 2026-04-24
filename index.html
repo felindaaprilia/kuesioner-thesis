@@ -285,6 +285,13 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
   <label>Mengajar di (Sekolah)
     <input type="text" id="sekolah">
   </label>
+<label>Status Pengelolaan Sekolah
+  <select id="statusSekolah">
+    <option value="">-- Pilih --</option>
+    <option>Negeri</option>
+    <option>Swasta</option>
+  </select>
+</label>
   <label>Pendidikan Terakhir
     <select id="pendidikan">
       <option>D1 (Diploma 1)</option>
@@ -296,7 +303,7 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
       <option>S3 (Doktor)</option>
           </select>
   </label>
-  <label>Universitas
+  <label>Nama Perguruan Tinggi tempat Anda menempuh pendidikan terakhir
     <input type="text" id="universitas">
   </label>
   <label>Sertifikasi Guru
@@ -314,6 +321,17 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
     <label><input type="checkbox" id="k13"> Kurikulum 2013</label>
     <label><input type="checkbox" id="merdeka"> Kurikulum Merdeka</label>
 </div>
+<div class="checkbox-group">
+  <strong>Lokasi Sekolah Berdasarkan Peta Persebaran</strong><br>
+  <img src="peta.png" 
+       alt="Peta Persebaran Sekolah"
+       style="width:100%; max-width:500px; margin:10px 0; border-radius:6px;">
+  
+  <label><input type="radio" name="lokasi" value="Perkotaan">Perkotaan</label> 
+  <label><input type="radio" name="lokasi" value="Semi-Perkotaan">Semi-Perkotaan</label>
+  <label><input type="radio" name="lokasi" value="Pedesaan">Pedesaan</label>
+</div>
+ 
   </div>
 
 <button onclick="nextToKuesioner()">Lanjut ke Kuesioner</button>
@@ -617,8 +635,10 @@ function kirimData(){
 const nama = document.getElementById("nama");
 const usia = document.getElementById("usia");
 const sekolah = document.getElementById("sekolah");
+const statusSekolah = document.getElementById("statusSekolah");
 const universitas = document.getElementById("universitas");
 const lama = document.getElementById("lama");
+const lokasi = document.querySelector('input[name="lokasi"]:checked');
 
 if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.value){
   
@@ -628,8 +648,10 @@ if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.v
   if(!nama.value) nama.scrollIntoView({behavior:"smooth"});
   else if(!usia.value) usia.scrollIntoView({behavior:"smooth"});
   else if(!sekolah.value) sekolah.scrollIntoView({behavior:"smooth"});
+  else if(!statusSekolah.value) statusSekolah.scrollIntoView({behavior:"smooth"});
   else if(!universitas.value) universitas.scrollIntoView({behavior:"smooth"});
   else if(!lama.value) lama.scrollIntoView({behavior:"smooth"});
+  else if(!lokasi.value) lokasi.scrollIntoView({behavior:"smooth"});
 
   return;
 }
