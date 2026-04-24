@@ -303,7 +303,7 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
       <option>S3 (Doktor)</option>
           </select>
   </label>
-  <label>Nama Perguruan Tinggi tempat anda menempuh pendidikan terakhir
+  <label>Perguruan Tinggi saat menempuh pendidikan terakhir
     <input type="text" id="universitas">
   </label>
   <label>Sertifikasi Guru
@@ -326,6 +326,7 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
   <img src="Peta.png" 
        alt="Peta Persebaran Sekolah"
        style="width:100%; max-width:500px; margin:auto 0; border-radius:6px;">
+  <b></b>
   <label>Berdasarkan Peta diatas, dimana lokasi Sekolah anda</label>
   <label><input type="radio" name="lokasi" value="Perkotaan">Perkotaan</label> 
   <label><input type="radio" name="lokasi" value="Semi-Perkotaan">Semi-Perkotaan</label>
@@ -720,7 +721,7 @@ const tombol = document.getElementById("btnKirim");
     data.jawabanB.push(b.value);
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbyF4lmzYZ3vf9aLMUAB-tNoR9286AJrzPU9JZKZoM57BxEPaaxe2cs2z668guOErgl5uA/exec", {
+  fetch("https://script.google.com/macros/s/AKfycby1wdrRfmUwXsAzcwh3R5IQwXotu3aOaiGm-ILlhpmw8p4Q2Nm6fXv_TY-52ALDbcAa_A/exec", {
     method: "POST",
     mode: "no-cors",
     body: JSON.stringify(data)
