@@ -286,11 +286,11 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
     <input type="text" id="sekolah">
   </label>
 <label>Status Pengelolaan Sekolah
-  <select id="statusSekolah">
-    <option value="">-- Pilih --</option>
-    <option>Negeri</option>
-    <option>Swasta</option>
-  </select>
+<select id="statusSekolah">
+  <option value="">-- Pilih --</option>
+  <option>Negeri</option>
+  <option>Swasta</option>
+</select>
 </label>
   <label>Pendidikan Terakhir
     <select id="pendidikan">
@@ -326,9 +326,9 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
   <img src="Peta.png" 
        alt="Peta Persebaran Sekolah"
        style="width:100%; max-width:500px; margin:auto 0; border-radius:6px;">
-  <br></br>
-  <div class="checkbox-group">
-  <label>Berdasarkan Peta diatas, dimana lokasi Sekolah anda</label>
+  <p></p>
+   <div class="checkbox-group">
+ <label>Kategori lokasi sekolah Anda</label>
   <label><input type="radio" name="lokasi" value="Perkotaan">Perkotaan</label> 
   <label><input type="radio" name="lokasi" value="Semi-Perkotaan">Semi-Perkotaan</label>
   <label><input type="radio" name="lokasi" value="Pedesaan">Pedesaan</label>
@@ -579,9 +579,28 @@ function nextToKuesioner(){
   const sekolah = document.getElementById("sekolah");
   const universitas = document.getElementById("universitas");
   const lama = document.getElementById("lama");
+  const statusSekolah = document.getElementById("statusSekolah");
+  const lokasi = document.querySelector('input[name="lokasi"]:checked');
 
-  if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.value){
-    alert("Mohon lengkapi profil terlebih dahulu.");
+  if(
+    !nama.value || 
+    !usia.value || 
+    !sekolah.value || 
+    !universitas.value || 
+    !lama.value || 
+    !statusSekolah.value || 
+    !lokasi
+  ){
+    alert("Mohon lengkapi seluruh data profil terlebih dahulu.");
+    
+    if(!nama.value) nama.scrollIntoView({behavior:"smooth"});
+    else if(!usia.value) usia.scrollIntoView({behavior:"smooth"});
+    else if(!sekolah.value) sekolah.scrollIntoView({behavior:"smooth"});
+    else if(!universitas.value) universitas.scrollIntoView({behavior:"smooth"});
+    else if(!lama.value) lama.scrollIntoView({behavior:"smooth"});
+    else if(!statusSekolah.value) statusSekolah.scrollIntoView({behavior:"smooth"});
+    else if(!lokasi) document.querySelector('[name="lokasi"]').scrollIntoView({behavior:"smooth"});
+
     return;
   }
 
