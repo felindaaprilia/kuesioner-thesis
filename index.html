@@ -321,12 +321,13 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
     <label><input type="checkbox" id="k13"> Kurikulum 2013</label>
     <label><input type="checkbox" id="merdeka"> Kurikulum Merdeka</label>
 </div>
-<div class="checkbox-group">
+
   <strong>Lokasi Sekolah Berdasarkan Peta Persebaran</strong><br>
   <img src="Peta.png" 
        alt="Peta Persebaran Sekolah"
        style="width:100%; max-width:500px; margin:auto 0; border-radius:6px;">
-  <b></b>
+  <br></br>
+  <div class="checkbox-group">
   <label>Berdasarkan Peta diatas, dimana lokasi Sekolah anda</label>
   <label><input type="radio" name="lokasi" value="Perkotaan">Perkotaan</label> 
   <label><input type="radio" name="lokasi" value="Semi-Perkotaan">Semi-Perkotaan</label>
@@ -652,8 +653,8 @@ if(!nama.value || !usia.value || !sekolah.value || !universitas.value || !lama.v
   else if(!statusSekolah.value) statusSekolah.scrollIntoView({behavior:"smooth"});
   else if(!universitas.value) universitas.scrollIntoView({behavior:"smooth"});
   else if(!lama.value) lama.scrollIntoView({behavior:"smooth"});
-  else if(!lokasi.value) lokasi.scrollIntoView({behavior:"smooth"});
-
+  else if(!lokasi) {
+  alert("Silakan pilih lokasi sekolah.");
   return;
 }
 
@@ -700,10 +701,12 @@ const tombol = document.getElementById("btnKirim");
     nama: document.getElementById("nama").value,
     usia: document.getElementById("usia").value,
     sekolah: document.getElementById("sekolah").value,
+    statusSekolah: document.getElementById("statusSekolah").value,
     pendidikan: document.getElementById("pendidikan").value,
     universitas: document.getElementById("universitas").value,
     sertifikasi: document.getElementById("sertifikasi").value,
     lamaMengajar: document.getElementById("lama").value,
+    lokasi: document.querySelector('input[name="lokasi"]:checked')?.value,
     ktsp: document.getElementById("ktsp").checked,
     k13: document.getElementById("k13").checked,
     merdeka: document.getElementById("merdeka").checked,
