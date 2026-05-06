@@ -900,21 +900,21 @@ if(
 }
 
   // ================= VALIDASI METAKOGNISI =================
-  for(let i=0;i<16;i++){
+  for(let i=0;i<15;i++){
     const jawaban = document.querySelector(`input[name="metakognisi${i}"]:checked`);
     const box = document.querySelectorAll('.question')[i];
 
     if(!jawaban){
       box.classList.add('error');
       box.scrollIntoView({behavior:"smooth", block:"center"});
-      alert("Masih ada pertanyaan Metakognisi yang belum diisi.");
+      alert("Masih ada pertanyaan Metakognisi Digital yang belum diisi.");
       return;
     }
   }
 
   // ================= VALIDASI LITERASI =================
   for(let i=0;i<25;i++){
-    const index = i + 16; // offset setelah metakognisi
+    const index = i + 15; // offset setelah metakognisi
     const jawaban = document.querySelector(`input[name="literasiAI${i}"]:checked`);
     const box = document.querySelectorAll('.question')[index];
 
@@ -955,7 +955,7 @@ const tombol = document.getElementById("btnKirim");
     jawabanB: []
   };
 
-  for(let i=0;i<16;i++){
+  for(let i=0;i<15;i++){
     const a = document.querySelector(`input[name="metakognisi${i}"]:checked`);
     data.jawabanA.push(a.value);
   }
