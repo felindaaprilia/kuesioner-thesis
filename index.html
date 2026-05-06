@@ -368,74 +368,124 @@ Dengan memilih <strong>“Bersedia”</strong>, Bapak/Ibu menyatakan bahwa:
 
 <script>
 const metakognisi = [
-{q:"Dalam praktik pembelajaran Informatika, sejauh mana saya menyadari kekuatan dan kelemahan diri saya dalam menggunakan teknologi digital dan AI?",
- d1:"Masih dalam tahap awal mengenali kekuatan dan keterbatasan diri dalam penggunaan AI",
- d2:"Mulai menyadari kekuatan dan keterbatasan diri dalam penggunaan AI",
- d3:"Sudah memiliki kesadaran yang jelas dan reflektif dalam penggunaan AI"},
-{q:"Sejauh mana saya memahami peran saya sebagai guru Informatika dalam mengarahkan penggunaan AI secara pedagogis?",
- d1:"Masih dalam tahap awal memahami peran dalam penggunaan AI secara pedagogis",
- d2:"Mulai memahami peran dalam penggunaan AI secara pedagogis",
- d3:"Sudah memahami peran secara jelas dalam penggunaan AI secara pedagogis"},
-{q:"Sejauh mana saya memiliki kendali dalam menentukan bagaimana teknologi digital atau AI digunakan dalam pembelajaran?",
- d1:"Penggunaan AI belum sepenuhnya berada dalam kendali yang terencana",
- d2:"Mulai memiliki kendali dalam penggunaan AI",
- d3:"Memiliki kendali yang jelas dan terarah dalam penggunaan AI"},
-{q:"Sejauh mana saya menggunakan pengalaman sebelumnya untuk menentukan strategi penggunaan AI dalam pembelajaran Informatika?",
- d1:"Pengalaman sebelumnya belum menjadi dasar dalam penggunaan AI",
- d2:"Mulai menggunakan pengalaman dalam menentukan strategi AI",
- d3:"Secara konsisten menggunakan pengalaman sebagai dasar strategi AI"},
-{q:"Sebelum pembelajaran, sejauh mana saya menyadari dan merencanakan strategi penggunaan teknologi digital atau AI?",
- d1:"Penggunaan AI belum direncanakan secara terstruktur",
- d2:"Mulai merencanakan penggunaan AI dalam pembelajaran",
- d3:"Penggunaan AI direncanakan secara terstruktur dalam pembelajaran"},
 
-{q:"Sejauh mana saya menyesuaikan penggunaan AI atau teknologi digital dengan situasi dan kebutuhan pembelajaran?",
- d1:"Penyesuaian penggunaan AI masih terbatas pada situasi tertentu",
- d2:"Mulai menyesuaikan penggunaan AI dengan situasi pembelajaran",
- d3:"Mampu menyesuaikan penggunaan AI sesuai kebutuhan pembelajaran"},
-{q:"Sejauh mana saya mempertimbangkan waktu, risiko, dan keterbatasan dalam penggunaan AI saat merencanakan pembelajaran?",
- d1:"Pertimbangan penggunaan AI belum dilakukan secara menyeluruh",
- d2:"Mulai mempertimbangkan aspek penggunaan AI dalam perencanaan",
- d3:"Secara sadar mempertimbangkan penggunaan AI dalam perencanaan"},
-{q:"Sebelum pembelajaran, sejauh mana saya menetapkan tujuan penggunaan teknologi digital atau AI secara spesifik?",
- d1:"Tujuan penggunaan AI belum dirumuskan secara spesifik",
- d2:"Mulai menetapkan tujuan penggunaan AI secara spesifik",
- d3:"Tujuan penggunaan AI dirumuskan secara jelas dan spesifik"},
-{q:"Sejauh mana saya merencanakan materi pembelajaran yang relevan dengan penggunaan teknologi digital atau AI?",
- d1:"Materi pembelajaran belum dikaitkan secara jelas dengan penggunaan AI",
- d2:"Mulai merencanakan materi yang terkait dengan penggunaan AI",
- d3:"Materi pembelajaran terintegrasi dengan penggunaan AI"},
-{q:"Selama pembelajaran, sejauh mana saya memantau apakah penggunaan AI membantu mencapai tujuan pembelajaran?",
- d1:"Pemantauan penggunaan AI belum dilakukan secara konsisten",
- d2:"Mulai memantau penggunaan AI dalam pembelajaran",
- d3:"Secara konsisten memantau penggunaan AI terhadap tujuan pembelajaran"},
+/* ================= DECLARATIVE KNOWLEDGE ================= */
 
-{q:"Selama pembelajaran, sejauh mana saya menganalisis efektivitas penggunaan AI dalam membantu pemahaman siswa?",
- d1:"Analisis penggunaan AI masih terbatas dalam pembelajaran",
- d2:"Mulai menganalisis efektivitas penggunaan AI",
- d3:"Secara aktif menganalisis efektivitas penggunaan AI dalam pembelajaran"},
-{q:"Selama pembelajaran, sejauh mana saya memeriksa apakah penggunaan AI membantu siswa memahami materi yang diajarkan?",
- d1:"Pemeriksaan pemahaman siswa berbasis AI belum dilakukan secara terarah",
- d2:"Mulai memeriksa pemahaman siswa melalui penggunaan AI",
- d3:"Secara konsisten memeriksa pemahaman siswa melalui penggunaan AI"},
-{q:"Selama pembelajaran, sejauh mana saya menilai kualitas keputusan saya dalam menggunakan AI?",
- d1:"Penilaian penggunaan AI belum dilakukan secara reflektif",
- d2:"Mulai menilai penggunaan AI dalam pembelajaran",
- d3:"Secara reflektif menilai keputusan penggunaan AI"},
-{q:"Setelah pembelajaran, sejauh mana saya mengevaluasi apakah penggunaan AI membantu mencapai tujuan pembelajaran?",
- d1:"Evaluasi penggunaan AI belum dilakukan secara terstruktur",
- d2:"Mulai mengevaluasi penggunaan AI dalam pembelajaran",
- d3:"Secara terstruktur mengevaluasi penggunaan AI terhadap tujuan pembelajaran"},
-{q:"Setelah pembelajaran, sejauh mana saya mempertimbangkan penggunaan strategi AI yang berbeda untuk meningkatkan pembelajaran?",
- d1:"Pertimbangan strategi AI alternatif masih terbatas",
- d2:"Mulai mempertimbangkan strategi AI yang berbeda",
- d3:"Secara terbuka mempertimbangkan berbagai strategi AI untuk pembelajaran"},
+{
+q:"Dalam praktik pembelajaran Informatika, sejauh mana Anda menyadari kekuatan dan kelemahan diri dalam memanfaatkan teknologi digital di kelas?",
+d1:"Kesadaran terhadap kekuatan dan keterbatasan diri dalam pemanfaatan teknologi mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Kesadaran terhadap kekuatan dan keterbatasan diri dalam pemanfaatan teknologi mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Kesadaran terhadap kekuatan dan keterbatasan diri dalam pemanfaatan teknologi terintegrasi dalam praktik pembelajaran secara konsisten"
+},
 
-{q:"Sejauh mana saya merefleksikan kemungkinan penggunaan AI yang lebih efektif pada pembelajaran berikutnya?",
- d1:"Refleksi penggunaan AI masih dalam tahap awal",
- d2:"Mulai merefleksikan penggunaan AI untuk perbaikan",
- d3:"Secara berkelanjutan merefleksikan penggunaan AI untuk pembelajaran berikutnya"},
-  
+{
+q:"Sejauh mana Anda memahami peran Anda sebagai guru Informatika dalam mengarahkan pemanfaatan teknologi dalam pembelajaran?",
+d1:"Pemahaman tentang peran sebagai guru dalam pemanfaatan teknologi mulai teridentifikasi dalam pembelajaran",
+d2:"Pemahaman tentang peran sebagai guru dalam pemanfaatan teknologi mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang peran sebagai guru dalam pemanfaatan teknologi terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana Anda memiliki kendali dalam menentukan bagaimana teknologi digunakan untuk mendukung proses pembelajaran?",
+d1:"Kesadaran akan kendali dalam penggunaan teknologi mulai teridentifikasi dalam pembelajaran",
+d2:"Kendali dalam penggunaan teknologi mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Kendali dalam penggunaan teknologi terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+/* ================= PROCEDURAL KNOWLEDGE ================= */
+
+{
+q:"Sejauh mana Anda memanfaatkan pengalaman mengajar sebelumnya dalam menentukan strategi penggunaan teknologi dalam pembelajaran?",
+d1:"Pemanfaatan pengalaman dalam menentukan strategi pembelajaran mulai teridentifikasi",
+d2:"Pemanfaatan pengalaman mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemanfaatan pengalaman terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana Anda menyadari dan merencanakan strategi penggunaan teknologi dalam pembelajaran?",
+d1:"Kesadaran terhadap strategi penggunaan teknologi mulai teridentifikasi sebelum pembelajaran",
+d2:"Strategi mulai direncanakan dan digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Strategi terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+/* ================= CONDITIONAL KNOWLEDGE ================= */
+
+{
+q:"Sejauh mana Anda memanfaatkan kekuatan yang dimiliki untuk mengatasi keterbatasan dalam penggunaan teknologi di kelas?",
+d1:"Penyesuaian penggunaan teknologi terhadap situasi pembelajaran mulai teridentifikasi",
+d2:"Penyesuaian mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Penyesuaian terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana Anda menyesuaikan penggunaan teknologi dengan situasi dan kebutuhan pembelajaran di kelas?",
+d1:"Upaya memanfaatkan kekuatan untuk mengatasi keterbatasan dalam penggunaan teknologi mulai teridentifikasi",
+d2:"Upaya memanfaatkan kekuatan untuk mengatasi keterbatasan dalam penggunaan teknologi mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Upaya memanfaatkan kekuatan untuk mengatasi keterbatasan dalam penggunaan teknologi terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+/* ================= PLANNING ================= */
+
+{
+q:"Sejauh mana Anda mempertimbangkan waktu, risiko, dan keterbatasan dalam penggunaan teknologi saat merencanakan pembelajaran?",
+d1:"Penggunaan teknologi dalam pembelajaran dilakukan dengan mempertimbangkan waktu, risiko, dan berbagai keterbatasan secara konsisten",
+d2:"Perencanaan pembelajaran mulai menunjukkan adanya pertimbangan terhadap waktu, risiko, dan keterbatasan penggunaan teknologi",
+d3:"Perencanaan pembelajaran telah secara konsisten mengintegrasikan pertimbangan waktu, risiko, dan keterbatasan penggunaan teknologi"
+},
+
+{
+q:"Sejauh mana Anda merencanakan materi pembelajaran yang sesuai dengan penggunaan teknologi di kelas?",
+d1:"Perencanaan materi yang terkait dengan penggunaan teknologi mulai teridentifikasi",
+d2:"Perencanaan materi mulai digunakan sebagai dasar pembelajaran",
+d3:"Perencanaan materi terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+/* ================= MONITORING ================= */
+
+{
+q:"Selama pembelajaran, sejauh mana Anda memantau apakah penggunaan teknologi membantu mencapai tujuan pembelajaran?",
+d1:"Pemantauan ketercapaian tujuan pembelajaran mulai teridentifikasi selama pembelajaran",
+d2:"Pemantauan mulai digunakan sebagai dasar evaluasi selama pembelajaran",
+d3:"Pemantauan terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Selama pembelajaran, sejauh mana Anda menilai efektivitas strategi yang digunakan dalam membantu pemahaman siswa?",
+d1:"Penilaian efektivitas strategi pembelajaran mulai teridentifikasi selama pembelajaran",
+d2:"Penilaian mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Penilaian terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Selama pembelajaran, sejauh mana Anda memeriksa pemahaman siswa terhadap materi yang diajarkan?",
+d1:"Pemeriksaan pemahaman siswa mulai teridentifikasi selama pembelajaran",
+d2:"Pemeriksaan mulai digunakan sebagai dasar penyesuaian pembelajaran",
+d3:"Pemeriksaan terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+/* ================= EVALUATION ================= */
+
+{
+q:"Setelah pembelajaran, sejauh mana Anda mengevaluasi ketercapaian tujuan pembelajaran yang telah direncanakan?",
+d1:"Evaluasi terhadap ketercapaian tujuan pembelajaran mulai teridentifikasi setelah pembelajaran",
+d2:"Evaluasi mulai digunakan sebagai dasar perbaikan pembelajaran",
+d3:"Evaluasi terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Setelah pembelajaran, sejauh mana Anda mempertimbangkan penggunaan strategi yang berbeda untuk meningkatkan pembelajaran?",
+d1:"Pertimbangan terhadap alternatif strategi pembelajaran mulai teridentifikasi",
+d2:"Pertimbangan mulai digunakan sebagai dasar perbaikan pembelajaran",
+d3:"Pertimbangan terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana Anda merefleksikan kemungkinan perbaikan pembelajaran pada pertemuan berikutnya?",
+d1:"Refleksi terhadap pembelajaran mulai teridentifikasi",
+d2:"Refleksi mulai digunakan sebagai dasar pengembangan pembelajaran",
+d3:"Refleksi terintegrasi dalam praktik pembelajaran secara berkelanjutan"
+}
+
 ];
 </script>
 
@@ -449,114 +499,194 @@ const metakognisi = [
 
 <script>
 const literasiAI = [
-{q:"Sejauh mana Anda memahami bahwa kecerdasan buatan (AI) menggunakan algoritma untuk belajar dari data?",
- d1:"Masih dalam tahap awal memahami konsep AI berbasis data",
- d2:"Mulai memahami konsep AI berbasis data",
- d3:"Sudah memahami konsep AI berbasis data secara jelas"},
-{q:"Sejauh mana Anda memahami bahwa data dalam jumlah besar berperan dalam meningkatkan kinerja AI?",
- d1:"Pemahaman tentang peran data dalam AI masih terbatas",
- d2:"Mulai memahami peran data dalam AI",
- d3:"Memahami peran data dalam AI dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa AI dapat digunakan untuk mengenali ucapan manusia?",
- d1:"Masih dalam tahap awal memahami aplikasi AI dalam pengenalan suara",
- d2:"Mulai memahami aplikasi AI dalam pengenalan suara",
- d3:"Memahami aplikasi AI dalam pengenalan suara dengan jelas"},
-{q:"Sejauh mana Anda memahami bahwa kecerdasan tidak hanya dimiliki oleh manusia?",
- d1:"Pemahaman tentang konsep kecerdasan dalam AI masih terbatas",
- d2:"Mulai memahami konsep kecerdasan dalam AI",
- d3:"Memahami konsep kecerdasan dalam AI dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa AI berkaitan dengan berbagai bidang ilmu, termasuk pendidikan?",
- d1:"Pemahaman tentang sifat interdisipliner AI masih terbatas",
- d2:"Mulai memahami keterkaitan AI dengan berbagai bidang",
- d3:"Memahami keterkaitan AI dengan berbagai bidang secara jelas"},
 
-{q:"Sejauh mana Anda memahami bahwa AI dirancang untuk menyelesaikan tugas tertentu secara spesifik?",
- d1:"Pemahaman tentang AI masih dalam tahap awal",
- d2:"Mulai memahami AI untuk tugas spesifik",
- d3:"Memahami AI untuk tugas spesifik dengan jelas"},
-{q:"Sejauh mana Anda memahami bahwa AI dapat dibedakan menjadi AI umum dan AI sempit?",
- d1:"Pemahaman tentang jenis AI masih terbatas",
- d2:"Mulai memahami perbedaan jenis AI",
- d3:"Memahami perbedaan jenis AI dengan jelas"},
-{q:"Sejauh mana Anda memahami bahwa AI mampu bekerja dalam situasi kompleks?",
- d1:"Pemahaman tentang kemampuan AI masih terbatas",
- d2:"Mulai memahami kemampuan AI dalam situasi kompleks",
- d3:"Memahami kemampuan AI dalam situasi kompleks dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa keputusan penting tidak selalu tepat jika diserahkan sepenuhnya kepada AI?",
- d1:"Pemahaman tentang keterbatasan AI dalam pengambilan keputusan masih terbatas",
- d2:"Mulai memahami keterbatasan AI dalam pengambilan keputusan",
- d3:"Memahami keterbatasan AI dalam pengambilan keputusan secara jelas"},
-{q:"Sejauh mana Anda memahami bahwa kemampuan AI tidak sepenuhnya setara dengan manusia?",
- d1:"Pemahaman tentang batasan kemampuan AI masih terbatas",
- d2:"Mulai memahami batasan kemampuan AI",
- d3:"Memahami batasan kemampuan AI dengan baik"},
+/* ================= WHAT IS AI? ================= */
 
-{q:"Sejauh mana Anda memahami bahwa AI dapat mengenali pola visual dan suara?",
- d1:"Pemahaman tentang cara kerja AI dalam mengenali pola masih terbatas",
- d2:"Mulai memahami cara kerja AI dalam mengenali pola",
- d3:"Memahami cara kerja AI dalam mengenali pola dengan jelas"},
-{q:"Sejauh mana Anda memahami bahwa beberapa sistem AI bekerja berdasarkan aturan tertentu?",
- d1:"Pemahaman tentang sistem berbasis aturan dalam AI masih terbatas",
- d2:"Mulai memahami sistem berbasis aturan dalam AI",
- d3:"Memahami sistem berbasis aturan dalam AI dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa AI tidak berpikir seperti manusia?",
- d1:"Pemahaman tentang perbedaan cara berpikir AI masih terbatas",
- d2:"Mulai memahami perbedaan cara berpikir AI",
- d3:"Memahami perbedaan cara berpikir AI dengan jelas"},
-{q:"Sejauh mana Anda memahami bahwa machine learning digunakan untuk memprediksi dan mengklasifikasikan data?",
- d1:"Pemahaman tentang fungsi machine learning masih terbatas",
- d2:"Mulai memahami fungsi machine learning",
- d3:"Memahami fungsi machine learning dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa machine learning belajar dari data?",
- d1:"Pemahaman tentang prinsip machine learning masih terbatas",
- d2:"Mulai memahami prinsip machine learning",
- d3:"Memahami prinsip machine learning dengan jelas"},
+{
+q:"Sejauh mana anda memahami bahwa kecerdasan buatan (AI) menggunakan algoritma untuk belajar dari data?",
+d1:"Pemahaman tentang AI yang belajar dari data mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Pemahaman tentang AI yang belajar dari data digunakan sebagai dasar pertimbangan dalam praktik pembelajaran",
+d3:"Pemahaman tentang AI yang belajar dari data menjadi bagian dari praktik pembelajaran secara berkelanjutan"
+},
 
-{q:"Sejauh mana Anda memahami bahwa data dalam AI dibagi menjadi data pelatihan dan pengujian?",
- d1:"Pemahaman tentang proses data dalam AI masih terbatas",
- d2:"Mulai memahami proses data dalam AI",
- d3:"Memahami proses data dalam AI dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa data yang bias dapat menghasilkan keputusan AI yang bias?",
- d1:"Pemahaman tentang bias dalam AI masih terbatas",
- d2:"Mulai memahami dampak bias dalam AI",
- d3:"Memahami dampak bias dalam AI dengan jelas"},
-{q:"Sejauh mana Anda memahami bahwa data dapat ditafsirkan dengan berbagai cara?",
- d1:"Pemahaman tentang interpretasi data masih terbatas",
- d2:"Mulai memahami interpretasi data",
- d3:"Memahami interpretasi data dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa data dipengaruhi oleh konteks sosial dan budaya?",
- d1:"Pemahaman tentang konteks data masih terbatas",
- d2:"Mulai memahami pengaruh konteks pada data",
- d3:"Memahami pengaruh konteks pada data dengan jelas"},
-{q:"Sejauh mana Anda memahami bahwa penggunaan AI memerlukan pengawasan manusia?",
- d1:"Pemahaman tentang peran pengawasan manusia masih terbatas",
- d2:"Mulai memahami pentingnya pengawasan manusia",
- d3:"Memahami pentingnya pengawasan manusia dengan baik"},
+{
+q:"Sejauh mana anda memahami bahwa data dalam jumlah besar berperan dalam meningkatkan kinerja AI?",
+d1:"Pemahaman tentang peran data dalam AI mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Pemahaman tentang peran data dalam AI digunakan sebagai dasar pertimbangan dalam praktik pembelajaran",
+d3:"Pemahaman tentang peran data dalam AI menjadi bagian dari praktik pembelajaran secara berkelanjutan"
+},
 
-{q:"Sejauh mana Anda memahami bahwa manusia memiliki peran penting dalam penggunaan AI?",
- d1:"Pemahaman tentang peran manusia dalam AI masih terbatas",
- d2:"Mulai memahami peran manusia dalam AI",
- d3:"Memahami peran manusia dalam AI dengan jelas"},
-{q:"Sejauh mana Anda memahami pentingnya transparansi dalam penggunaan AI?",
- d1:"Pemahaman tentang transparansi dalam AI masih terbatas",
- d2:"Mulai memahami pentingnya transparansi dalam AI",
- d3:"Memahami pentingnya transparansi dalam AI dengan baik"},
-{q:"Sejauh mana Anda memahami pentingnya aturan dalam penggunaan AI?",
- d1:"Pemahaman tentang regulasi AI masih terbatas",
- d2:"Mulai memahami pentingnya regulasi AI",
- d3:"Memahami pentingnya regulasi AI dengan jelas"},
-{q:"Sejauh mana Anda memahami pentingnya privasi dalam penggunaan AI?",
- d1:"Pemahaman tentang privasi dalam AI masih terbatas",
- d2:"Mulai memahami pentingnya privasi dalam AI",
- d3:"Memahami pentingnya privasi dalam AI dengan baik"},
-{q:"Sejauh mana Anda memahami bahwa AI tidak boleh merusak kohesi sosial?",
- d1:"Pemahaman tentang dampak sosial AI masih terbatas",
- d2:"Mulai memahami dampak sosial AI",
- d3:"Memahami dampak sosial AI dengan jelas"},
+{
+q:"Sejauh mana anda memahami bahwa AI dapat digunakan untuk mengenali ucapan manusia?",
+d1:"Pemahaman tentang aplikasi AI dalam pengenalan suara mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Pemahaman tentang aplikasi AI dalam pengenalan suara digunakan sebagai dasar pertimbangan dalam praktik pembelajaran",
+d3:"Pemahaman tentang aplikasi AI dalam pengenalan suara menjadi bagian dari praktik pembelajaran secara berkelanjutan"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa kecerdasan tidak hanya dimiliki oleh manusia?",
+d1:"Pemahaman tentang konsep kecerdasan dalam AI mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Pemahaman tentang konsep kecerdasan dalam AI digunakan sebagai dasar pertimbangan dalam praktik pembelajaran",
+d3:"Pemahaman tentang konsep kecerdasan dalam AI menjadi bagian dari praktik pembelajaran secara berkelanjutan"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa AI seperti machine learning, chatbot, dan sistem rekomendasi, dengan berbagai bidang ilmu termasuk pendidikan?",
+d1:"Pemahaman tentang keterkaitan AI (misalnya chatbot atau sistem otomatis) dengan berbagai bidang mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Pemahaman tentang keterkaitan AI dengan berbagai bidang digunakan sebagai dasar pertimbangan dalam praktik pembelajaran",
+d3:"Pemahaman tentang keterkaitan AI dengan berbagai bidang menjadi bagian dari praktik pembelajaran secara berkelanjutan dan terintegrasi"
+},
+
+/* ================= GENERAL VS NARROW AI ================= */
+
+{
+q:"Sejauh mana anda memahami bahwa AI dirancang untuk menyelesaikan tugas tertentu secara spesifik?",
+d1:"Pemahaman tentang AI untuk tugas spesifik mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Pemahaman tentang AI untuk tugas spesifik digunakan sebagai dasar pertimbangan dalam praktik pembelajaran",
+d3:"Pemahaman tentang AI untuk tugas spesifik menjadi bagian dari praktik pembelajaran secara berkelanjutan"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa AI dapat dibedakan menjadi AI umum dan AI sempit?",
+d1:"Pemahaman tentang perbedaan jenis AI mulai teridentifikasi dalam praktik pembelajaran",
+d2:"Pemahaman tentang perbedaan jenis AI digunakan sebagai dasar pertimbangan dalam praktik pembelajaran",
+d3:"Pemahaman tentang perbedaan jenis AI menjadi bagian dari praktik pembelajaran secara berkelanjutan"
+},
+
+/* ================= WHAT CAN AI DO? ================= */
+
+{
+q:"Sejauh mana anda memahami bahwa AI mampu bekerja dalam situasi kompleks?",
+d1:"Pemahaman kapasitas AI dalam menangani situasi kompleks mulai teridentifikasi dalam pembelajaran",
+d2:"Pemahaman kapasitas AI dalam menangani situasi kompleks mulai digunakan dalam pembelajaran",
+d3:"Pemahaman kapasitas AI dalam menangani situasi kompleks terintegrasi dalam pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa keputusan penting tidak selalu tepat jika diserahkan sepenuhnya kepada AI?",
+d1:"Pemahaman keterbatasan AI dalam pengambilan keputusan mulai teridentifikasi dalam pembelajaran",
+d2:"Pemahaman keterbatasan AI dalam pengambilan keputusan mulai digunakan dalam pembelajaran",
+d3:"Pemahaman keterbatasan AI dalam pengambilan keputusan terintegrasi dalam pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana Anda memahami bahwa AI memiliki kemampuan dan keterbatasan yang berbeda dengan manusia dalam pembelajaran?",
+d1:"Pemahaman tentang perbedaan kemampuan AI dan manusia mulai dikenali dalam pembelajaran",
+d2:"Pemahaman tentang perbedaan kemampuan AI dan manusia digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang perbedaan kemampuan AI dan manusia diterapkan secara konsisten dalam pembelajaran"
+},
+
+/* ================= HOW DOES AI WORK? ================= */
+
+{
+q:"Sejauh mana anda memahami bahwa AI dapat mengenali pola visual dan suara?",
+d1:"Pemahaman tentang pengenalan pola dalam AI mulai teridentifikasi dalam pembelajaran",
+d2:"Pemahaman tentang pengenalan pola dalam AI mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang pengenalan pola dalam AI terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa beberapa sistem AI bekerja berdasarkan aturan tertentu?",
+d1:"Pemahaman tentang sistem berbasis aturan dalam AI mulai teridentifikasi dalam pembelajaran",
+d2:"Pemahaman tentang sistem berbasis aturan dalam AI mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang sistem berbasis aturan dalam AI terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa AI tidak berpikir seperti manusia?",
+d1:"Pemahaman perbedaan mekanisme kognitif AI dan manusia mulai teridentifikasi dalam pembelajaran",
+d2:"Pemahaman perbedaan kognitif AI dan manusia mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman perbedaan kognitif AI dan manusia terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana Anda memahami bahwa machine learning digunakan untuk membantu mengenali pola dan mengelompokkan informasi dalam pembelajaran?",
+d1:"Pemahaman fungsi machine learning mulai teridentifikasi dalam pembelajaran",
+d2:"Pemahaman tentang fungsi machine learning digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang fungsi machine learning diterapkan secara konsisten dalam pembelajaran"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa machine learning belajar dari data?",
+d1:"Pemahaman prinsip pembelajaran mesin berbasis data dalam pembelajaran",
+d2:"Pemahaman prinsip pembelajaran mesin berbasis data mulai digunakan dalam pembelajaran",
+d3:"Pemahaman prinsip pembelajaran mesin berbasis data terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa data dalam AI dibagi menjadi data pelatihan dan pengujian?",
+d1:"Pemahaman tentang proses data dalam AI masih terbatas",
+d2:"Pemahaman tentang proses data dalam AI mulai diterapkan dalam pembelajaran",
+d3:"Pemahaman tentang proses data dalam AI dengan baik"
+},
+
+{
+q:"Sejauh mana Anda memahami bahwa data yang tidak beragam atau tidak sesuai dapat memengaruhi hasil AI dalam pembelajaran?",
+d1:"Pemahaman tentang pengaruh data terhadap hasil AI dalam pembelajaran masih terbatas",
+d2:"Pemahaman tentang pengaruh data terhadap hasil AI mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang pengaruh data terhadap hasil AI diterapkan secara konsisten dalam praktik pembelajaran"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa data dapat ditafsirkan dengan berbagai cara?",
+d1:"Pemahaman tentang interpretasi data masih terbatas",
+d2:"Pemahaman sifat interpretatif data mulai digunakan dalam pembelajaran",
+d3:"Pemahaman sifat interpretatif data terintegrasi dalam pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana Anda memahami bahwa data dapat dipengaruhi oleh latar belakang sosial dan budaya, seperti bahasa, kebiasaan, nilai, dan lingkungan masyarakat?",
+d1:"Pemahaman tentang pengaruh latar belakang sosial dan budaya terhadap data masih terbatas",
+d2:"Pemahaman tentang pengaruh latar belakang sosial dan budaya terhadap data mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang pengaruh latar belakang sosial dan budaya terhadap data diterapkan secara konsisten dalam praktik pembelajaran"
+},
+
+{
+q:"Sejauh mana Anda memahami bahwa penggunaan AI tetap memerlukan kendali, penilaian, dan pengecekan dari manusia dalam pembelajaran?",
+d1:"Pemahaman tentang pentingnya kendali dan pengecekan manusia terhadap penggunaan AI masih terbatas",
+d2:"Pemahaman tentang pentingnya kendali dan pengecekan manusia terhadap penggunaan AI mulai digunakan sebagai pertimbangan dalam pembelajaran",
+d3:"Pemahaman tentang pentingnya kendali dan pengecekan manusia terhadap penggunaan AI diterapkan secara konsisten dalam praktik pembelajaran"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa manusia memiliki peran penting dalam penggunaan AI?",
+d1:"Pemahaman tentang peran manusia dalam AI masih terbatas",
+d2:"Pemahaman peran manusia dalam pengembangan dan penggunaan AI mulai digunakan dalam pembelajaran",
+d3:"Pemahaman peran manusia dalam pengembangan dan penggunaan AI terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+/* ================= HOW SHOULD AI BE USED? ================= */
+
+{
+q:"Sejauh mana anda memahami pentingnya transparansi dalam penggunaan AI?",
+d1:"Pemahaman tentang transparansi dalam AI masih terbatas",
+d2:"Pemahaman prinsip transparansi dalam penggunaan AI mulai digunakan dalam pembelajaran",
+d3:"Pemahaman prinsip transparansi dalam penggunaan AI terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana anda memahami pentingnya aturan dalam penggunaan AI?",
+d1:"Pemahaman tentang regulasi AI masih terbatas",
+d2:"Pemahaman tentang pentingnya regulasi dalam penggunaan AI mulai digunakan dalam pembelajaran",
+d3:"Pemahaman tentang pentingnya regulasi dalam penggunaan AI terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana anda memahami pentingnya privasi dalam penggunaan AI?",
+d1:"Pemahaman tentang privasi dalam AI masih terbatas",
+d2:"Pemahaman perlindungan privasi dalam penggunaan AI mulai dipahami dalam pembelajaran",
+d3:"Pemahaman tentang perlindungan privasi dalam penggunaan AI terintegrasi dalam praktik pembelajaran secara konsisten"
+},
+
+{
+q:"Sejauh mana anda memahami bahwa AI tidak boleh merusak kohesi sosial?",
+d1:"Pemahaman tentang dampak sosial AI masih terbatas",
+d2:"Pemahaman implikasi sosial penggunaan AI mulai dipahami dalam pembelajaran",
+d3:"Pemahaman implikasi sosial penggunaan AI terintegrasi dalam praktik pembelajaran secara konsisten"
+}
 
 ];
 </script>
-
   
 <button id="btnKirim" onclick="kirimData()">Kirim Jawaban</button>
 
