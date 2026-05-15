@@ -867,7 +867,7 @@ if(
 }
 
   // ================= VALIDASI METAKOGNISI =================
-  for(let i=0;i<15;i++){
+  for(let i=0;i<14;i++){
     const jawaban = document.querySelector(`input[name="metakognisi${i}"]:checked`);
     const box = document.querySelectorAll('.question')[i];
 
@@ -880,7 +880,7 @@ if(
   }
 
   // ================= VALIDASI LITERASI =================
-  for(let i=0;i<25;i++){
+  for(let i=0;i<21;i++){
     const index = i + 15; // offset setelah metakognisi
     const jawaban = document.querySelector(`input[name="literasiAI${i}"]:checked`);
     const box = document.querySelectorAll('.question')[index];
@@ -922,12 +922,12 @@ const tombol = document.getElementById("btnKirim");
     jawabanB: []
   };
 
-  for(let i=0;i<15;i++){
+  for(let i=0;i<14;i++){
     const a = document.querySelector(`input[name="metakognisi${i}"]:checked`);
     data.jawabanA.push(a.value);
   }
 
-  for(let i=0;i<25;i++){
+  for(let i=0;i<21;i++){
     const b = document.querySelector(`input[name="literasiAI${i}"]:checked`);
     data.jawabanB.push(b.value);
   }
